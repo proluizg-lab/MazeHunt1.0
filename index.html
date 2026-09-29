@@ -1,1 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MazeHunt — RPG de Aventura</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(circle at top, #2b1d0b 0%, #101114 38%, #08090b 100%);
+            color: #f5f5f5;
+            min-height: 100vh;
+        }
+
+        .hero {
+            min-height: 650px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .hero h1 {
+            color: #e5ad43;
+            font-size: clamp(55px, 9vw, 110px);
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+
+            text-shadow:
+                0 4px 0 #6e4513,
+                0 10px 30px rgba(229, 173, 67, 0.20);
+        }
+
+        .subtitulo {
+            color: #efd9a8;
+            font-size: 20px;
+            margin-bottom: 35px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 18px 32px;
+
+            background: linear-gradient(#e4ad43, #b87920);
+            color: #111;
+
+            font-size: 17px;
+            font-weight: bold;
+            text-decoration: none;
+
+            border: 2px solid #f4d487;
+            border-radius: 8px;
+
+            box-shadow:
+                0 5px 0 #68400f,
+                0 12px 25px rgba(0, 0, 0, 0.4);
+
+            transition: 0.2s;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.12);
+        }
+
+        .download-btn:active {
+            transform: translateY(2px);
+        }
+
+        .versao {
+            margin-top: 20px;
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        main {
+            width: min(900px, 92%);
+            margin: auto;
+            padding-bottom: 80px;
+        }
+
+        .card {
+            background: #15171b;
+            border: 1px solid #34373d;
+            border-radius: 12px;
+
+            padding: 30px;
+            margin-bottom: 25px;
+
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .card h2 {
+            color: #e5ad43;
+            margin-bottom: 18px;
+            font-size: 25px;
+        }
+
+        .card p {
+            line-height: 1.7;
+            color: #ddd;
+        }
+
+        .controles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .controle {
+            background: #0c0e11;
+            border: 1px solid #30343b;
+            border-radius: 9px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .tecla {
+            display: inline-block;
+            background: #e5ad43;
+            color: #111;
+
+            font-weight: bold;
+            padding: 8px 13px;
+            border-radius: 6px;
+
+            margin-bottom: 12px;
+        }
+
+        .controle p {
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .aventura {
+            line-height: 2.1;
+            color: #ddd;
+            margin-top: 15px;
+        }
+
+        .download-final {
+            text-align: center;
+        }
+
+        .download-final p {
+            margin-bottom: 25px;
+        }
+
+        footer {
+            border-top: 1px solid #25272c;
+            text-align: center;
+            padding: 35px 20px;
+            color: #777;
+            font-size: 14px;
+        }
+
+        footer strong {
+            color: #d3a03f;
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                min-height: 580px;
+            }
+
+            .hero h1 {
+                letter-spacing: 2px;
+            }
+
+            .subtitulo {
+                font-size: 17px;
+            }
+
+            .download-btn {
+                width: 100%;
+                max-width: 340px;
+            }
+
+            .card {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="hero">
+
+        <h1>MAZEHUNT</h1>
+
+        <p class="subtitulo">
+            Explore. Lute. Encontre a chave. Desvende as ruínas.
+        </p>
+
+        <a
+            class="download-btn"
+            href="https://github.com/proluizg-lab/MazeHunt1.0/releases/latest/download/MazeHunt.rar"
+        >
+            ↓ BAIXAR MAZEHUNT (.RAR)
+        </a>
+
+        <p class="versao">
+            Versão 1.0.0 • Windows
+        </p>
+
+    </header>
+
+
+    <main>
+
+        <section class="card">
+
+            <h2>⚔️ Sobre o jogo</h2>
+
+            <p>
+                <strong>MazeHunt</strong> é uma aventura 2D de
+                exploração e combate. Atravesse labirintos,
+                visite a vila, enfrente criaturas, complete
+                missões e descubra os segredos escondidos
+                nas antigas ruínas.
+            </p>
+
+        </section>
+
+
+        <section class="card">
+
+            <h2>🎮 Controles</h2>
+
+            <div class="controles">
+
+                <div class="controle">
+                    <div class="tecla">WASD</div>
+                    <p>Movimentar</p>
+                </div>
+
+                <div class="controle">
+                    <div class="tecla">ESPAÇO</div>
+                    <p>Atacar</p>
+                </div>
+
+                <div class="controle">
+                    <div class="tecla">E</div>
+                    <p>Interagir</p>
+                </div>
+
+                <div class="controle">
+                    <div class="tecla">ESC</div>
+                    <p>Fechar o jogo</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="card">
+
+            <h2>🏰 Sua aventura</h2>
+
+            <p>
+                Explore o mundo de MazeHunt e descubra o que
+                está escondido além do labirinto.
+            </p>
+
+            <div class="aventura">
+                🗺️ Explore diferentes áreas<br>
+                ⚔️ Enfrente criaturas e chefes<br>
+                🪙 Colete moedas<br>
+                🗝️ Encontre a Chave Antiga<br>
+                💎 Descubra os segredos das ruínas<br>
+                💪 Desbloqueie poderes escondidos<br>
+                👑 Enfrente o desafio final
+            </div>
+
+        </section>
+
+
+        <section class="card download-final">
+
+            <h2>🏹 Pronto para começar?</h2>
+
+            <p>
+                Baixe MazeHunt para Windows e comece sua aventura.
+            </p>
+
+            <a
+                class="download-btn"
+                href="https://github.com/proluizg-lab/MazeHunt1.0/releases/latest/download/MazeHunt.rar"
+            >
+                ↓ BAIXAR MAZEHUNT v1.0.0
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <strong>MazeHunt</strong> — RPG de Aventura 2D
+        <br><br>
+        Versão 1.0.0 • Windows
+    </footer>
+
+</body>
+
+</html>
